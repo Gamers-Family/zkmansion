@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+const { user } = Astro.params
+---
+
+<Layout title="Perfil">
+  <div>
+    <div class="perfil">
+      <div class="foto-perfil"></div>
+      <div class="datos">
+        <div class="nickname">Scripted</div>
+        <div class="nombre">Miquel Toran</div>
+        <div class="fecha">10 de Julio del 1997</div>
+        <div class="color"></div>
+        <div class="descripcion">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero
+          suscipit, esse ullam, reiciendis tempora neque impedit molestiae modi
+          harum sed, itaque corporis nobis velit! Soluta provident facere
+          possimus voluptatem explicabo?
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  .perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+
+    .foto-perfil {
+      background-image: url('https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2022/11/pikachu-pokemon-escarlata-purpura-2888180.jpg');
+      width: 100%;
+      height: 50%;
+      opacity: 0.8;
+      position: absolute;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    .datos {
+      position: absolute;
+      width: calc(100% - 40px);
+      height: 40%;
+      color: white;
+      border: 2px white;
+      background-color: rgb(20, 20, 20);
+      padding: 20px;
+      border-radius: 12px 12px 0 0;
+      bottom: 0;
+      box-shadow: 0 0 50px 60px #020202;
+
+      .nickname {
+        position: absolute;
+        transform: translateY(-70px);
+        font-size: 30px;
+        font-family: Lobster;
+      }
+      .fecha {
+        font-size: 12px;
+        color: rgb(197, 194, 194);
+      }
+
+      .descripcion {
+        margin-top: 10px;
+        font-size: 13px;
+        background: linear-gradient(to bottom right, #00bfff, #9534ee, #6b09b1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+</style>
