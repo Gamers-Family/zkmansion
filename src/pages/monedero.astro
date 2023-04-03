@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="ZK Mansion">
+  <div class="monedero">
+    <h2>Monedero de ZKoins</h2>
+    <div class="coins">
+      <div class="coins__cantidad">14,00</div>
+      <img class="coins__coin" src="/img/zk_color.jpeg" alt="ZK" />
+    </div>
+    <hr />
+
+    <div class="historial">
+      <div class="historial__diferencia--verde">+4 ZK</div>
+      <div class="historial__concepto">Ganador del torneo de ajedrez</div>
+    </div>
+    <div class="historial">
+      <div class="historial__diferencia--rojo">-2 ZK</div>
+      <div class="historial__concepto">Apuesta perdida pringao</div>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  .monedero {
+    padding: 10px;
+
+    h2 {
+      text-align: center;
+    }
+
+    hr {
+      border: 1px solid rgb(115, 0, 126);
+    }
+
+    .coins {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      width: 100%;
+      margin: 30px 0;
+      justify-content: center;
+      gap: 20px;
+
+      &__cantidad {
+        font-size: 50px;
+
+        background: linear-gradient(to right, #4f94e6, #8f3db3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &__coin {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        border: 2px solid white;
+      }
+    }
+
+    .historial {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      font-size: 13px;
+      padding: 10px;
+
+      &__diferencia {
+        &--verde {
+          color: rgb(0, 206, 0);
+        }
+
+        &--rojo {
+          color: red;
+        }
+      }
+
+      &__concepto {
+        color: rgb(207, 207, 207);
+      }
+    }
+  }
+</style>

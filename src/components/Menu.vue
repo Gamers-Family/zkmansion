@@ -3,10 +3,12 @@
 <template>
   <div class="menu">
     <div class="header">
-      <div class="header__logo">
-        <img class="image" src="/img/zk_white.png" alt="ZK" />
-        <h1 class="title">MANSION</h1>
-      </div>
+      <a href="/">
+        <div class="header__logo">
+          <img class="image" src="/img/zk_white.png" alt="ZK" />
+          <h1 class="title">MANSION</h1>
+        </div>
+      </a>
       <div class="header__monedero">
         <div class="cantidad">14</div>
         <img class="coin" src="/img/zk_color.jpeg" alt="ZK" />
@@ -29,6 +31,11 @@
     justify-content: space-between;
     height: 50px;
 
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
     &__logo {
       display: flex;
       align-items: center;
@@ -36,7 +43,7 @@
       .image {
         width: 32px;
         height: 32px;
-        padding: 10px;
+        margin: 5px;
       }
 
       .title {

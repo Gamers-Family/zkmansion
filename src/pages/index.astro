@@ -1,5 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.vue'
+import ProfileCard from '../components/ProfileCard.vue'
 ---
 
-<Layout title="ZK Mansion">ZK MANSION!</Layout>
+<Layout title="ZK Mansion">
+  <div class="cards">
+    <Card title="Horarios" icon="schedule" link="/horarios" />
+    <Card title="Ranking" icon="ranking" link="/ranking" />
+    <Card title="Comunidad" icon="social" link="/comunidad" />
+    <Card title="Premios" icon="gift" link="/premios" />
+    <Card title="Trabajo" icon="task" link="/trabajo" />
+    <ProfileCard />
+    <Card title="Monedero" icon="wallet" link="/monedero" />
+  </div>
+</Layout>
+
+<style lang="scss">
+  .cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+</style>
