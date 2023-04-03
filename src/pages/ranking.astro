@@ -6,4 +6,23 @@ import Card from '../components/Card.vue'
 
 <Layout title="Ranking">
   <Ranking client:load />
+
+  <div class="cards">
+    <Card title="Horarios" icon="schedule" link="/horarios" />
+    <Card title="Ranking" icon="ranking" link="/ranking" />
+    <Card title="Comunidad" icon="social" link="/comunidad" />
+    <Card title="Premios" icon="gift" link="/premios" />
+    <Card title="Trabajo" icon="task" link="/trabajo" />
+    <Card title="Monedero" icon="wallet" link="/monedero" />
+  </div>
 </Layout>
+
+<style lang="scss">
+  .cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+</style>
