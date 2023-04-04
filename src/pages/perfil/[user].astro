@@ -4,21 +4,32 @@ import Layout from '../../layouts/Layout.astro'
 const { user } = Astro.params
 ---
 
+<script>
+  const user = localStorage.getItem('zk-mansion-user')
+
+  if (user) return user
+
+  //fetch('https://www')
+
+  console.log(localStorage.setItem('HOLA', 'SCRIPTED'))
+  console.log(localStorage)
+</script>
+
 <Layout title="Perfil">
-  <div>
-    <div class="perfil">
-      <div class="foto-perfil"></div>
-      <div class="datos">
-        <div class="nickname">Scripted</div>
-        <div class="nombre">Miquel Toran</div>
-        <div class="fecha">10 de Julio del 1997</div>
-        <div class="color"></div>
-        <div class="descripcion">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero
-          suscipit, esse ullam, reiciendis tempora neque impedit molestiae modi
-          harum sed, itaque corporis nobis velit! Soluta provident facere
-          possimus voluptatem explicabo?
-        </div>
+  <div class="perfil">
+    <div class="foto-perfil">
+      <img src="/img/valorant/platinum.png" />
+    </div>
+    <div class="datos">
+      <div class="nickname">Scripted</div>
+      <div class="nombre">Miquel Toran</div>
+      <div class="fecha">10 de Julio del 1997</div>
+      <div class="color"></div>
+      <div class="descripcion">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero suscipit,
+        esse ullam, reiciendis tempora neque impedit molestiae modi harum sed,
+        itaque corporis nobis velit! Soluta provident facere possimus voluptatem
+        explicabo?
       </div>
     </div>
   </div>
@@ -42,6 +53,13 @@ const { user } = Astro.params
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
+
+      img {
+        width: 60px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
     }
 
     .datos {

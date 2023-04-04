@@ -30,7 +30,9 @@ const { title } = Astro.props
   </head>
   <body>
     <Menu />
-    <slot />
+    <div class="container">
+      <slot />
+    </div>
   </body>
 </html>
 <style is:global>
@@ -39,8 +41,14 @@ const { title } = Astro.props
     font-family: Poppins;
     min-height: 100vh;
     color: rgb(243, 243, 243);
+    overflow: hidden;
+    background: #16071d;
+  }
 
-    background: #0a0a0a;
+  .container {
+    margin-top: 60px;
+    max-height: calc(100vh - 60px);
+    overflow: scroll;
   }
 
   * {

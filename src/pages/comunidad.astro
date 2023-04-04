@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ProfileCard from '../components/ProfileCard.vue'
+
+const users = Array(24).fill('')
+---
+
+<Layout title="Comunidad">
+  <div class="title">
+    <h2>Comunidad</h2>
+  </div>
+  <div class="cards">
+    {users.map((item) => <ProfileCard title="Perfil" link="/img/maria.png" />)}
+  </div>
+</Layout>
+
+<style lang="scss">
+  .title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+</style>

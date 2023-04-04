@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Ranking from '../../components/Ranking.vue'
+
+const { game } = Astro.params
+
+// AQUI SE HARÁ LA PETICIÓN A LA BASE DE DATOS
+const users = []
+---
+
+<Layout title="Ranking">
+  <a href="/ranking">
+    <img class="back" src="/img/back.svg" alt="<" />
+    <div class="title">
+      <img src="/img/pelota.svg" />
+      <h2>{game}</h2>
+    </div>
+  </a>
+  <Ranking usersV2={users} />
+</Layout>
+
+<style lang="scss">
+  .title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    h2 {
+      text-align: center;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+
+  .back {
+    position: absolute;
+    margin-top: 22px;
+    margin-left: 20px;
+    width: 30px;
+  }
+</style>

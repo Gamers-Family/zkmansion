@@ -1,11 +1,17 @@
 <script setup>
-const link = '/img/maria.png'
+const props = defineProps({
+  link: String,
+  title: String,
+})
 </script>
 
 <template>
   <a href="perfil/x">
-    <div class="profile-card" :style="{ backgroundImage: `url(${link})` }">
-      <div class="card__title">Perfil</div>
+    <div
+      class="profile-card"
+      :style="{ backgroundImage: `url(${props.link})` }"
+    >
+      <div class="card__title">{{ props.title }}</div>
     </div>
   </a>
 </template>
@@ -21,6 +27,7 @@ const link = '/img/maria.png'
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  min-height: 125px;
 
   background-position: center;
   background-size: cover;

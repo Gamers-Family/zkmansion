@@ -9,9 +9,19 @@
           <h1 class="title">MANSION</h1>
         </div>
       </a>
-      <div class="header__monedero">
-        <div class="cantidad">14</div>
-        <img class="coin" src="/img/zk_color.jpeg" alt="ZK" />
+      <div class="header__stats">
+        <a href="/ranking/global">
+          <div class="rango">
+            <div class="cantidad">43</div>
+            <img class="icono" src="/img/valorant/immortal.png" />
+          </div>
+        </a>
+        <a href="/monedero">
+          <div class="monedero">
+            <div class="cantidad">14</div>
+            <img class="coin" src="/img/zk_color.jpeg" alt="ZK" />
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -21,20 +31,19 @@
 @import '../assets/variables.scss';
 
 .menu {
-  height: 50px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  height: 60px;
   width: 100%;
-  border-bottom: 1px solid $ZKColorB;
+  background-color: black;
+  box-shadow: 0 0 10px 2px rgba(32, 12, 24, 0.527);
 
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
-
-    a {
-      color: white;
-      text-decoration: none;
-    }
+    height: 60px;
 
     &__logo {
       display: flex;
@@ -52,22 +61,37 @@
       }
     }
 
-    &__monedero {
+    &__stats {
       display: flex;
-      padding: 0 10px;
-      gap: 5px;
+
+      .monedero {
+        display: flex;
+        padding: 0 10px;
+        gap: 5px;
+
+        .coin {
+          width: 25px;
+          height: 25px;
+          margin-top: 2px;
+          border-radius: 100%;
+          border: 2px solid white;
+          animation: spin 2s linear infinite;
+        }
+      }
+
+      .rango {
+        display: flex;
+        gap: 5px;
+
+        .icono {
+          width: 25px;
+          height: 25px;
+          margin-top: 2px;
+        }
+      }
 
       .cantidad {
         line-height: 2;
-        margin-right: 5px;
-      }
-
-      .coin {
-        width: 25px;
-        height: 25px;
-        border-radius: 100%;
-        border: 2px solid white;
-        animation: spin 2s linear infinite;
       }
     }
   }

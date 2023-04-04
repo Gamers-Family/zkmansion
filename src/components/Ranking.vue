@@ -1,4 +1,8 @@
 <script setup>
+const props = defineProps({
+  usersV2: Array,
+})
+
 const users = [
   {
     nick: 'Scripted',
@@ -23,8 +27,12 @@ users.sort((a, b) => (a.totalCoins < b.totalCoins ? 1 : -1))
 <template>
   <div>
     <div class="clasificacion" v-for="(user, index) of users" :key="user.nick">
-      <div class="nick">{{ index + 1 }} {{ user.nick }}</div>
+      <div class="nick">
+        <img src="/img/valorant/gold.png" />
+        {{ user.nick }}
+      </div>
       <div class="puntos">{{ user.totalCoins }}</div>
+      <div class="dark"></div>
       <div
         class="background"
         :style="{ backgroundImage: `url(${user.avatar})` }"
@@ -49,6 +57,22 @@ users.sort((a, b) => (a.totalCoins < b.totalCoins ? 1 : -1))
     font-family: Lobster;
     font-size: 25px;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    z-index: 1;
+  }
+
+  .nick {
+    display: flex;
+    gap: 10px;
+    img {
+      width: 30px;
+    }
+  }
+
+  .dark {
+    position: absolute;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    width: 100%;
+    height: 70px;
   }
 
   .background {

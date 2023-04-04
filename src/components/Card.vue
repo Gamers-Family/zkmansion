@@ -3,12 +3,13 @@ const props = defineProps({
   title: String,
   icon: String,
   link: String,
+  theme: String,
 })
 </script>
 
 <template>
   <a :href="link">
-    <div class="card">
+    <div class="card" :class="theme">
       <img v-if="icon" class="card__icon" :src="`/img/${icon}.svg`" />
       <div class="card__title">{{ title }}</div>
     </div>
@@ -27,6 +28,10 @@ const props = defineProps({
   justify-content: center;
   align-items: center;
   background: linear-gradient(-30deg, #0d253f, #470047);
+
+  &.ranking {
+    background: linear-gradient(-30deg, #aa8b00, #ff00f2);
+  }
 
   &__icon {
     width: 40px;

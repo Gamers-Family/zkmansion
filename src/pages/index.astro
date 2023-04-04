@@ -11,8 +11,13 @@ import ProfileCard from '../components/ProfileCard.vue'
     <Card title="Comunidad" icon="social" link="/comunidad" />
     <Card title="Premios" icon="gift" link="/premios" />
     <Card title="Trabajo" icon="task" link="/trabajo" />
-    <ProfileCard />
+    <ProfileCard title="Mi perfil" link="/img/maria.png" />
     <Card title="Monedero" icon="wallet" link="/monedero" />
+    <Card title="Notificaciones" icon="alert" link="/notificaciones" />
+
+    <div class="cards__admin">
+      <Card title="Admin" icon="admin" link="/admin" />
+    </div>
   </div>
 </Layout>
 
@@ -23,5 +28,9 @@ import ProfileCard from '../components/ProfileCard.vue'
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px;
+
+    &__admin {
+      grid-column: 1 / 3;
+    }
   }
 </style>

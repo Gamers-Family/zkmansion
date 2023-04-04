@@ -2,22 +2,104 @@
 import Layout from '../layouts/Layout.astro'
 import Ranking from '../components/Ranking.vue'
 import Card from '../components/Card.vue'
+
+const cards = [
+  {
+    title: 'Global',
+    icon: 'global',
+    link: '/ranking/global',
+  },
+  {
+    title: 'Futbol',
+    icon: 'pelota',
+    link: '/ranking/futbol',
+  },
+  {
+    title: 'Ajedrez',
+    icon: 'chess',
+    link: '/ranking/ajedrez',
+  },
+  {
+    title: 'Billar',
+    icon: 'billar',
+    link: '/ranking/billar',
+  },
+  {
+    title: 'Amongus',
+    icon: 'amongus',
+    link: '/ranking/amongus',
+  },
+  {
+    title: 'Dardos',
+    icon: 'dardo',
+    link: '/ranking/dardos',
+  },
+  {
+    title: 'Matar',
+    icon: 'matar',
+    link: '/ranking/matar',
+  },
+  {
+    title: 'Pañuelo',
+    icon: 'pañuelo',
+    link: '/ranking/pañuelo',
+  },
+  {
+    title: 'Petanca',
+    icon: 'petanca',
+    link: '/ranking/petanca',
+  },
+  {
+    title: 'Ping Pong',
+    icon: 'ping',
+    link: '/ranking/pingpong',
+  },
+  {
+    title: 'Batala',
+    icon: 'pistola',
+    link: '/ranking/batalla',
+  },
+  {
+    title: 'Pokémon',
+    icon: 'pokeball',
+    link: '/ranking/pokemon',
+  },
+  {
+    title: 'Sardina',
+    icon: 'sardina',
+    link: '/ranking/sardina',
+  },
+]
 ---
 
 <Layout title="Ranking">
-  <Ranking client:load />
-
+  <div class="title">
+    <h2>Rankings</h2>
+  </div>
   <div class="cards">
-    <Card title="Horarios" icon="schedule" link="/horarios" />
-    <Card title="Ranking" icon="ranking" link="/ranking" />
-    <Card title="Comunidad" icon="social" link="/comunidad" />
-    <Card title="Premios" icon="gift" link="/premios" />
-    <Card title="Trabajo" icon="task" link="/trabajo" />
-    <Card title="Monedero" icon="wallet" link="/monedero" />
+    {
+      cards.map((item) => (
+        <Card
+          title={item.title}
+          theme="ranking"
+          icon={item.icon}
+          link={item.link}
+        />
+      ))
+    }
   </div>
 </Layout>
 
 <style lang="scss">
+  .title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    h2 {
+      text-align: center;
+    }
+  }
   .cards {
     position: relative;
     display: grid;
