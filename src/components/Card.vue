@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
   <a :href="link">
     <div class="card" :class="theme">
-      <img v-if="icon" class="card__icon" :src="`/img/${icon}.svg`" />
+      <img v-if="icon" class="card__icon" :src="`/icons/${icon}.svg`" />
       <div class="card__title">{{ title }}</div>
     </div>
   </a>

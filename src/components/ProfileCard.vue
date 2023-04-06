@@ -1,15 +1,16 @@
 <script setup>
 const props = defineProps({
   link: String,
+  foto: String,
   title: String,
 })
 </script>
 
 <template>
-  <a href="perfil/x">
+  <a :href="link">
     <div
       class="profile-card"
-      :style="{ backgroundImage: `url(${props.link})` }"
+      :style="{ backgroundImage: `url(${props.foto})` }"
     >
       <div class="card__title">{{ props.title }}</div>
     </div>

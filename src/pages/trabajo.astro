@@ -1,21 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import WhiteCard from '../components/WhiteCard.vue'
+
+const users = Array(4).fill({
+  fecha: 'Dia 1 - 22:00',
+  title: 'Fiestón Tomorrowland ZK Mansion Power 3000',
+  icono: 'pistola',
+})
 ---
 
 <Layout title="Trabajo">
-  <div class="title">
+  <div class="page-title">
     <h2>Trabajo</h2>
+  </div>
+  <div class="cards">
+    {users.map((item) => <WhiteCard fecha={item.fecha} title={item.title} />)}
   </div>
 </Layout>
 
 <style lang="scss">
-  .title {
+  .cards {
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    gap: 10px;
-
-    h2 {
-      text-align: center;
-    }
+    flex-direction: column;
+    gap: 20px;
   }
 </style>

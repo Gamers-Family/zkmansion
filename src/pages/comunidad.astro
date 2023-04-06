@@ -2,34 +2,50 @@
 import Layout from '../layouts/Layout.astro'
 import ProfileCard from '../components/ProfileCard.vue'
 
-const users = Array(24).fill('')
+const response = await fetch(`${import.meta.env.API}/user/users`)
+
+let users = await response.json()
+
+users = users.map((user) => {
+  const base64Image = Buffer.from(user.foto.data).toString('base64')
+  user.foto = `data:image/jpeg;base64,${base64Image}`
+  user.profileLink = `/perfil/${user.userCode}`
+
+  return user
+})
+
+console.log(users)
 ---
 
 <Layout title="Comunidad">
-  <div class="title">
+  <div class="page-title">
     <h2>Comunidad</h2>
   </div>
   <div class="cards">
-    {users.map((item) => <ProfileCard title="Perfil" link="/img/maria.png" />)}
+    {
+      users.map((user) => (
+        <ProfileCard
+          title={user.apodo}
+          foto={user.foto}
+          link={user.profileLink}
+        />
+      ))
+    }
   </div>
 </Layout>
 
-<style lang="scss">
-  .title {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-    h2 {
-      text-align: center;
-    }
-  }
-
+<style lang="scss" is:global>
   .cards {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px;
+
+    .card__title {
+      font-family: Lobster;
+      font-size: 20px;
+      text-shadow: 0 0 6px rgb(255, 0, 179);
+    }
   }
 </style>

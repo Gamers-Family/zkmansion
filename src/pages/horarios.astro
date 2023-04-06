@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Horario from '../components/Horario.vue'
+import WhiteCard from '../components/WhiteCard.vue'
 
 const users = Array(4).fill({
   fecha: 'Dia 1 - 22:00',
@@ -10,25 +10,15 @@ const users = Array(4).fill({
 ---
 
 <Layout title="Horarios">
-  <div class="title">
+  <div class="page-title">
     <h2>Horarios</h2>
   </div>
   <div class="cards">
-    {users.map((item) => <Horario fecha={item.fecha} title={item.title} />)}
+    {users.map((item) => <WhiteCard fecha={item.fecha} title={item.title} />)}
   </div>
 </Layout>
 
 <style lang="scss">
-  .title {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-    h2 {
-      text-align: center;
-    }
-  }
-
   .cards {
     padding: 20px;
     display: flex;

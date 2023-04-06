@@ -13,7 +13,7 @@
         <a href="/ranking/global">
           <div class="rango">
             <div class="cantidad">43</div>
-            <img class="icono" src="/img/valorant/immortal.png" />
+            <img class="icono" src="/icons/valorant/immortal.png" />
           </div>
         </a>
         <a href="/monedero">

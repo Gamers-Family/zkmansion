@@ -11,9 +11,9 @@ if (!Astro.cookies.has('userCode')) {
   })
 }
 
-const apiUrl = `${import.meta.env.API}/user/profile?userCode=${user}`
-
-const response = await fetch(apiUrl)
+const response = await fetch(
+  `${import.meta.env.API}/user/profile?userCode=${user}`
+)
 
 const userData = await response.json()
 
@@ -27,18 +27,20 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
 <Layout title="Perfil">
   <div class="perfil">
     <div class="foto-perfil" style={`background-image: url(${fotoPerfil})`}>
-      <img src="/img/valorant/platinum.png" />
+      <a href="/ranking">
+        <img src={`/icons/valorant/${userData.rango}.png`} />
+      </a>
+      {userData.isAdmin && <img class="admin" src="/icons/admin.png" />}
+      <a href="/comunidad">
+        <img class="comunidad" src="/icons/social.svg" />
+      </a>
     </div>
     <div class="datos">
       <div class="nickname">{userData.apodo}</div>
-      <div class="nombre">Miquel Toran</div>
-      <div class="fecha">10 de Julio del 1997</div>
-      <div class="color"></div>
+      <div class="nombre">{userData.nombre}</div>
+      <div class="fecha">{userData.fecha}</div>
       <div class="descripcion">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero suscipit,
-        esse ullam, reiciendis tempora neque impedit molestiae modi harum sed,
-        itaque corporis nobis velit! Soluta provident facere possimus voluptatem
-        explicabo?
+        {userData.descripcion}
       </div>
     </div>
   </div>
@@ -60,13 +62,24 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      z-index: -1;
 
       img {
         width: 60px;
         position: absolute;
-        right: 10px;
+        right: 15px;
         top: 10px;
+      }
+
+      .comunidad {
+        left: 10px;
+        height: 50px;
+        width: 50px;
+      }
+
+      .admin {
+        top: 80px;
+        right: 10px;
+        width: 70px;
       }
     }
 
@@ -94,7 +107,7 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
 
       .descripcion {
         margin-top: 10px;
-        font-size: 13px;
+        font-size: 14px;
         background: linear-gradient(to bottom right, #00bfff, #9534ee, #6b09b1);
         -webkit-background-clip: text;
         background-clip: text;
