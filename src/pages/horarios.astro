@@ -2,11 +2,9 @@
 import Layout from '../layouts/Layout.astro'
 import WhiteCard from '../components/WhiteCard.vue'
 
-const users = Array(4).fill({
-  fecha: 'Dia 1 - 22:00',
-  title: 'Fiestón Tomorrowland ZK Mansion Power 3000',
-  icono: 'pistola',
-})
+const response = await fetch(`${import.meta.env.API}/horarios`)
+
+const horarios = await response.json()
 ---
 
 <Layout title="Horarios">
@@ -14,7 +12,17 @@ const users = Array(4).fill({
     <h2>Horarios</h2>
   </div>
   <div class="cards">
-    {users.map((item) => <WhiteCard fecha={item.fecha} title={item.title} />)}
+    {
+      horarios.map((item) => (
+        <WhiteCard
+          dia={item.dia}
+          hora={item.hora}
+          titulo={item.titulo}
+          icono={item.icono}
+          endDate={item.endDate}
+        />
+      ))
+    }
   </div>
 </Layout>
 

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   link: String,
   foto: String,
@@ -29,7 +29,7 @@ const props = defineProps({
   justify-content: flex-end;
   align-items: center;
   min-height: 125px;
-
+  box-shadow: 0 0 5px black;
   background-position: center;
   background-size: cover;
 

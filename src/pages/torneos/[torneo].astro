@@ -1,34 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import Ranking from '../../components/Ranking.vue'
 
-const { game } = Astro.params
-
-const response = await fetch(
-  `${import.meta.env.API}/users/ranking?game=${game}`
-)
-
-let users = await response.json()
-
-users = users.map((user) => {
-  if (user.foto) {
-    const base64Image = Buffer.from(user.foto.data).toString('base64')
-    user.foto = `data:image/jpeg;base64,${base64Image}`
-  }
-
-  return user
-})
+const { torneo } = Astro.params
 ---
 
-<Layout title="Ranking">
-  <a href="/ranking">
+<Layout title="Torneo">
+  <a href="/torneos">
     <img class="back" src="/icons/back.svg" alt="<" />
     <div class="page-title">
       <img src="/icons/pelota.svg" />
-      <h2>{game}</h2>
+      <h2>{torneo}</h2>
     </div>
   </a>
-  <Ranking users={users} />
 </Layout>
 
 <style lang="scss">

@@ -28,6 +28,7 @@ const props = defineProps({
   justify-content: center;
   align-items: center;
   background: linear-gradient(-30deg, #0d253f, #470047);
+  box-shadow: 0 0 5px black;
 
   &.ranking {
     background: linear-gradient(-30deg, #aa8b00, #ff00f2);

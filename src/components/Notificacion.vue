@@ -8,7 +8,7 @@ const props = defineProps({
 <template>
   <div class="notificacion" :class="props.tipo">
     <div class="notificacion__data">
-      <img :src="`/img/${props.tipo}.svg`" alt="!" />
+      <img :src="`/icons/${props.tipo}.svg`" alt="!" />
       <span>{{ props.mensaje }}</span>
     </div>
   </div>

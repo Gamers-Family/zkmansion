@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup lang="ts">
+const props = defineProps({
+  userPoints: {
+    type: Object,
+    required: true,
+  },
+})
+</script>
 
 <template>
   <div class="menu">
@@ -12,13 +19,13 @@
       <div class="header__stats">
         <a href="/ranking/global">
           <div class="rango">
-            <div class="cantidad">43</div>
+            <div class="cantidad">{{ props.userPoints.points }}</div>
             <img class="icono" src="/icons/valorant/immortal.png" />
           </div>
         </a>
         <a href="/monedero">
           <div class="monedero">
-            <div class="cantidad">14</div>
+            <div class="cantidad">{{ props.userPoints.zkoins }}</div>
             <img class="coin" src="/img/zk_color.jpeg" alt="ZK" />
           </div>
         </a>

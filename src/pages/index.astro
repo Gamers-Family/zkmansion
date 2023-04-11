@@ -2,6 +2,20 @@
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.vue'
 import ProfileCard from '../components/ProfileCard.vue'
+
+const userCode = Astro.cookies.get('userCode')
+
+const response = await fetch(
+  `${import.meta.env.API}/users/user-profile?userCode=${userCode.value}`
+)
+
+const userData = await response.json()
+
+const base64Image = userData.foto
+  ? Buffer.from(userData.foto.data).toString('base64')
+  : ''
+
+const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
 ---
 
 <Layout title="ZK Mansion">
@@ -11,13 +25,22 @@ import ProfileCard from '../components/ProfileCard.vue'
     <Card title="Comunidad" icon="social" link="/comunidad" />
     <Card title="Premios" icon="gift" link="/premios" />
     <Card title="Trabajo" icon="task" link="/trabajo" />
-    <ProfileCard title="Mi perfil" link="/img/maria.png" />
+    <ProfileCard
+      title="Mi perfil"
+      foto={fotoPerfil}
+      link={`/perfil/${userData.userCode}`}
+    />
     <Card title="Monedero" icon="wallet" link="/monedero" />
     <Card title="Notificaciones" icon="alert" link="/notificaciones" />
+    <Card title="Torneos" icon="torneo" link="/torneos" />
 
-    <div class="cards__admin">
-      <Card title="Admin" icon="admin" link="/admin" />
-    </div>
+    {
+      userData.isAdmin && (
+        <div class="cards__admin">
+          <Card title="Admin" icon="admin" link="/admin" />
+        </div>
+      )
+    }
   </div>
 </Layout>
 

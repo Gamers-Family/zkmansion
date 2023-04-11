@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const props = defineProps({
+  users: {
+    type: Object,
+    required: true,
+  },
+})
+
 const type = ref('zkoin')
 const cantidad = ref(0)
 </script>
@@ -8,8 +15,14 @@ const cantidad = ref(0)
 <template>
   <div class="admin">
     <select>
-      <option value="zkoin">Scripted</option>
-      <option value="puntos">Pyrogeno</option>
+      <option value="puntos">Todos</option>
+      <option
+        v-for="user of props.users"
+        :key="user.userCode"
+        :value="user.userCode"
+      >
+        {{ user.apodo }}
+      </option>
     </select>
 
     <hr />

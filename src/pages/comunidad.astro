@@ -2,19 +2,19 @@
 import Layout from '../layouts/Layout.astro'
 import ProfileCard from '../components/ProfileCard.vue'
 
-const response = await fetch(`${import.meta.env.API}/user/users`)
+const response = await fetch(`${import.meta.env.API}/users`)
 
 let users = await response.json()
 
 users = users.map((user) => {
-  const base64Image = Buffer.from(user.foto.data).toString('base64')
-  user.foto = `data:image/jpeg;base64,${base64Image}`
+  if (user.foto) {
+    const base64Image = Buffer.from(user.foto.data).toString('base64')
+    user.foto = `data:image/jpeg;base64,${base64Image}`
+  }
   user.profileLink = `/perfil/${user.userCode}`
 
   return user
 })
-
-console.log(users)
 ---
 
 <Layout title="Comunidad">
