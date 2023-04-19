@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Premio from '../components/Premio.vue'
 
-const response = await fetch(`${import.meta.env.API}/premios`)
+const response = await fetch(`${import.meta.env.PUBLIC_API}/premios`)
 
 const premios = await response.json()
 ---

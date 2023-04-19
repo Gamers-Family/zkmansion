@@ -2,17 +2,16 @@
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.vue'
 import ProfileCard from '../components/ProfileCard.vue'
+import Api from '../api'
 
 const userCode = Astro.cookies.get('userCode')
 
-const response = await fetch(
-  `${import.meta.env.API}/users/user-profile?userCode=${userCode.value}`
+const userData = await Api.get(
+  `/users/user-profile-with-image?userCode=${userCode.value}`
 )
 
-const userData = await response.json()
-
-const base64Image = userData.foto
-  ? Buffer.from(userData.foto.data).toString('base64')
+const base64Image = userData.imagen
+  ? Buffer.from(userData.imagen.data).toString('base64')
   : ''
 
 const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
@@ -27,7 +26,7 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
     <Card title="Trabajo" icon="task" link="/trabajo" />
     <ProfileCard
       title="Mi perfil"
-      foto={fotoPerfil}
+      imagen={fotoPerfil}
       link={`/perfil/${userData.userCode}`}
     />
     <Card title="Monedero" icon="wallet" link="/monedero" />

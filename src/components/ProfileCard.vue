@@ -1,16 +1,18 @@
 <script setup lang="ts">
 const props = defineProps({
   link: String,
-  foto: String,
+  imagen: String,
   title: String,
 })
+
+console.log('entra!!')
 </script>
 
 <template>
   <a :href="link">
     <div
       class="profile-card"
-      :style="{ backgroundImage: `url(${props.foto})` }"
+      :style="{ backgroundImage: `url(${props.imagen})` }"
     >
       <div class="card__title">{{ props.title }}</div>
     </div>
@@ -28,15 +30,9 @@ const props = defineProps({
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  min-height: 125px;
+  min-height: 150px;
   box-shadow: 0 0 5px black;
   background-position: center;
   background-size: cover;
-
-  &__icon {
-    width: 40px;
-    height: 40px;
-    margin: 20px;
-  }
 }
 </style>

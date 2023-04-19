@@ -1,31 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import Ranking from '../../components/Ranking.vue'
+import Api from '../../api'
 
 const { game } = Astro.params
 
-const response = await fetch(
-  `${import.meta.env.API}/users/ranking?game=${game}`
+console.log(
+  'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
+  `/users/ranking?game=${game}`
 )
 
-let users = await response.json()
+let users = await Api.get(`/users/ranking?game=${game}`)
+
+console.log('BAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', users)
 
 users = users.map((user) => {
-  if (user.foto) {
-    const base64Image = Buffer.from(user.foto.data).toString('base64')
+  if (user.imagen) {
+    const base64Image = Buffer.from(user.imagen.data).toString('base64')
     user.foto = `data:image/jpeg;base64,${base64Image}`
   }
 
   return user
 })
+
+const titulo = game[0].toUpperCase() + game.substring(1, game.length)
 ---
 
-<Layout title="Ranking">
+<Layout title={`Ranking ${titulo}`}>
   <a href="/ranking">
     <img class="back" src="/icons/back.svg" alt="<" />
     <div class="page-title">
-      <img src="/icons/pelota.svg" />
-      <h2>{game}</h2>
+      <img src={`/icons/${game}.svg`} />
+      <h2>{titulo}</h2>
     </div>
   </a>
   <Ranking users={users} />

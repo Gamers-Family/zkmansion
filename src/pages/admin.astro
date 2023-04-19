@@ -1,10 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import AdminForms from '../components/AdminForms.vue'
-
-const response = await fetch(`${import.meta.env.API}/users/minimal`)
-
-let users = await response.json()
 ---
 
 <Layout title="Admin">
@@ -12,5 +8,5 @@ let users = await response.json()
     <h2>Admin Panel</h2>
   </div>
 
-  <AdminForms users={users} client:load />
+  <AdminForms client:load />
 </Layout>

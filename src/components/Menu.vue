@@ -20,7 +20,10 @@ const props = defineProps({
         <a href="/ranking/global">
           <div class="rango">
             <div class="cantidad">{{ props.userPoints.points }}</div>
-            <img class="icono" src="/icons/valorant/immortal.png" />
+            <img
+              class="icono"
+              :src="`/icons/valorant/${props.userPoints.rango}.png`"
+            />
           </div>
         </a>
         <a href="/monedero">

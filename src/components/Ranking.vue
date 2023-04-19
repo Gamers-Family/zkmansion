@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
   <div>
-    <div v-for="(user, index) of props.users" :key="user.nick">
+    <div v-for="(user, index) of props.users" :key="user.apodo">
       <a :href="`/perfil/${user.userCode}`" class="participante">
         <div class="nick">
           <div

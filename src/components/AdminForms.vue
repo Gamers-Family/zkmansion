@@ -1,26 +1,42 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
+import Api from '../api'
 
-const props = defineProps({
-  users: {
-    type: Object,
-    required: true,
-  },
-})
-
-const type = ref('zkoin')
 const cantidad = ref(0)
+const type = ref('zkoins')
+const userCode = ref('todos')
+const users = ref([])
+const table = reactive([])
+
+const handleAdd = async () => {
+  console.log('asikugdaskujhdlg')
+  const res = await Api.get(
+    `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}`
+  )
+
+  const userName =
+    userCode.value === 'todos'
+      ? 'Todos'
+      : users.value.find((x) => userCode.value === x.userCode).apodo
+
+  alert(`
+    Users afectados: ${res.rows} (${userName})
+    Cantidad: ${cantidad.value}
+    Columna: ${type.value}
+  `)
+}
+
+onMounted(async () => {
+  users.value = await Api.get('/users')
+  console.log('aaaaaaaaaaaaa', users)
+})
 </script>
 
 <template>
   <div class="admin">
-    <select>
-      <option value="puntos">Todos</option>
-      <option
-        v-for="user of props.users"
-        :key="user.userCode"
-        :value="user.userCode"
-      >
+    <select v-model="userCode">
+      <option value="todos">Todos</option>
+      <option v-for="user of users" :key="user.userCode" :value="user.userCode">
         {{ user.apodo }}
       </option>
     </select>
@@ -29,13 +45,21 @@ const cantidad = ref(0)
 
     <div class="block">
       <select class="zk" v-model="type">
-        <option value="zkoin">ZKoin</option>
-        <option value="puntos">Puntos</option>
+        <option value="zkoins">ZKoins</option>
+        <option value="puntosGeneral">Puntos General</option>
+        <option value="futbol">Futbol</option>
+        <option value="ajedrez">Ajedrez</option>
+        <option value="pong">Ping Pong</option>
+        <option value="valorant">Valorant</option>
+        <option value="pokemon">Pokémon</option>
+        <option value="billar">Billar</option>
+        <option value="matar">Matar</option>
+        <option value="panuelo">Pañuelo</option>
       </select>
 
       <input type="number" v-model="cantidad" placeholder="Cantidad" />
 
-      <button>Add {{ type }}</button>
+      <button @click="handleAdd">Add</button>
     </div>
 
     <div class="block">

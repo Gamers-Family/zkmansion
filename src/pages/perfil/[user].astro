@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import Api from '../../api'
 
 const { user } = Astro.params
 const userCode = Astro.cookies.get('userCode')
@@ -12,16 +13,12 @@ if (!Astro.cookies.has('userCode')) {
   })
 }
 
-const response = await fetch(
-  `${import.meta.env.API}/users/user-profile?userCode=${user}`
+const userData = await Api.get(
+  `/users/user-profile-with-image?userCode=${user}`
 )
 
-console.log(response)
-
-const userData = await response.json()
-
-const base64Image = userData.foto
-  ? Buffer.from(userData.foto.data).toString('base64')
+const base64Image = userData.imagen
+  ? Buffer.from(userData.imagen.data).toString('base64')
   : ''
 const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
 ---
