@@ -1,12 +1,33 @@
-<script setup>
+<script setup lang="ts">
+import Api from '../api'
+import { ref, onMounted } from 'vue'
+import { Buffer } from 'buffer'
+
 const props = defineProps({
-  users: Array,
+  game: String,
+})
+
+const users = ref([])
+
+onMounted(async () => {
+  users.value = await Api.get(`/users/ranking?game=${props.game}`)
+
+  users.value = users.value.map((user) => {
+    if (user.imagen) {
+      const base64Image = Buffer.from(user.imagen.data).toString('base64')
+      user.foto = `data:image/jpeg;base64,${base64Image}`
+    }
+
+    return user
+  })
+
+  console.log(users)
 })
 </script>
 
 <template>
   <div>
-    <div v-for="(user, index) of props.users" :key="user.apodo">
+    <div v-for="user of users" :key="user.apodo">
       <a :href="`/perfil/${user.userCode}`" class="participante">
         <div class="nick">
           <div

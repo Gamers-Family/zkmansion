@@ -12,7 +12,6 @@ const userCode = Astro.cookies.get('userCode')
 const userPoints = await Api.get(
   `/users/user-zkoins-points?userCode=${userCode.value}`
 )
-console.log(userPoints)
 ---
 
 <!DOCTYPE html>

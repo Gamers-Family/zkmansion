@@ -24,8 +24,6 @@ onMounted(async () => {
     user.profileLink = `/perfil/${user.userCode}`
     return user
   })
-
-  console.log('0entraaa!!', usersWithImages.value)
 })
 </script>
 

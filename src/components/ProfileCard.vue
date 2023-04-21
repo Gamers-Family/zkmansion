@@ -4,8 +4,6 @@ const props = defineProps({
   imagen: String,
   title: String,
 })
-
-console.log('entra!!')
 </script>
 
 <template>

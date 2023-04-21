@@ -1,27 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import Ranking from '../../components/Ranking.vue'
-import Api from '../../api'
 
 const { game } = Astro.params
-
-console.log(
-  'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
-  `/users/ranking?game=${game}`
-)
-
-let users = await Api.get(`/users/ranking?game=${game}`)
-
-console.log('BAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', users)
-
-users = users.map((user) => {
-  if (user.imagen) {
-    const base64Image = Buffer.from(user.imagen.data).toString('base64')
-    user.foto = `data:image/jpeg;base64,${base64Image}`
-  }
-
-  return user
-})
 
 const titulo = game[0].toUpperCase() + game.substring(1, game.length)
 ---
@@ -34,7 +15,7 @@ const titulo = game[0].toUpperCase() + game.substring(1, game.length)
       <h2>{titulo}</h2>
     </div>
   </a>
-  <Ranking users={users} />
+  <Ranking game={game} client:load />
 </Layout>
 
 <style lang="scss">

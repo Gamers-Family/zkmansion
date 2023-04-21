@@ -9,7 +9,6 @@ const users = ref([])
 const table = reactive([])
 
 const handleAdd = async () => {
-  console.log('asikugdaskujhdlg')
   const res = await Api.get(
     `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}`
   )
@@ -28,7 +27,6 @@ const handleAdd = async () => {
 
 onMounted(async () => {
   users.value = await Api.get('/users')
-  console.log('aaaaaaaaaaaaa', users)
 })
 </script>
 
