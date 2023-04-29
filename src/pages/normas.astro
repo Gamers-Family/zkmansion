@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.vue'
+
+const cards = [
+  {
+    title: 'Casa',
+    icon: 'house',
+    link: '/normas/house',
+  },
+  {
+    title: 'Comercio',
+    icon: 'comercio',
+    link: '/normas/comercio',
+  },
+  {
+    title: 'Futbol',
+    icon: 'futbol',
+    link: '/normas/futbol',
+  },
+  {
+    title: 'Ajedrez',
+    icon: 'ajedrez',
+    link: '/normas/ajedrez',
+  },
+  {
+    title: 'Billar',
+    icon: 'billar',
+    link: '/normas/billar',
+  },
+  {
+    title: 'Amongus',
+    icon: 'amongus',
+    link: '/normas/amongus',
+  },
+  {
+    title: 'Dardos',
+    icon: 'dardos',
+    link: '/normas/dardos',
+  },
+  {
+    title: 'Matar',
+    icon: 'matar',
+    link: '/normas/matar',
+  },
+  {
+    title: 'Pañuelo',
+    icon: 'pañuelo',
+    link: '/normas/pañuelo',
+  },
+  {
+    title: 'Petanca',
+    icon: 'petanca',
+    link: '/normas/petanca',
+  },
+  {
+    title: 'Pong',
+    icon: 'pong',
+    link: '/normas/pong',
+  },
+  {
+    title: 'Valorant',
+    icon: 'valorant',
+    link: '/normas/batalla',
+  },
+  {
+    title: 'Pokémon',
+    icon: 'pokémon',
+    link: '/normas/pokemon',
+  },
+  {
+    title: 'Sardina',
+    icon: 'sardina',
+    link: '/normas/sardina',
+  },
+]
+---
+
+<Layout title="Normas">
+  <div class="page-title">
+    <h2>Normas</h2>
+  </div>
+  <div class="cards">
+    {
+      cards.map((item) => (
+        <Card
+          title={item.title}
+          theme="ranking"
+          icon={item.icon}
+          link={item.link}
+        />
+      ))
+    }
+  </div>
+</Layout>
+
+<style lang="scss">
+  .cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+</style>
