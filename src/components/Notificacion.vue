@@ -35,7 +35,7 @@ const props = defineProps({
     }
   }
 
-  &.mision {
+  &.alerta {
     background: linear-gradient(-30deg, #e3bb0a, #ff00f2);
   }
 }

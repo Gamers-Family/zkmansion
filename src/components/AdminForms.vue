@@ -4,12 +4,14 @@ import Api from '../api'
 
 const cantidad = ref(0)
 const type = ref('zkoins')
+const mision = ref('info')
+const typeMision = ref('typeMision')
 const userCode = ref('todos')
 const users = ref([])
 const table = reactive([])
 
 const handleAdd = async () => {
-  const res = await Api.get(
+  await Api.get(
     `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}`
   )
 
@@ -19,9 +21,25 @@ const handleAdd = async () => {
       : users.value.find((x) => userCode.value === x.userCode).apodo
 
   alert(`
-    Users afectados: ${res.rows} (${userName})
+    Users afectados: (${userName})
     Cantidad: ${cantidad.value}
-    Columna: ${type.value}
+    Tipo: ${type.value}
+  `)
+}
+
+const handleAddMision = async () => {
+  await Api.get(
+    `/admin/new-mision?mision=${mision.value}&userCode=${userCode.value}&type=${typeMision.value}`
+  )
+
+  const userName =
+    userCode.value === 'todos'
+      ? 'Todos'
+      : users.value.find((x) => userCode.value === x.userCode).apodo
+
+  alert(`
+    Misión enviada a: (${userName})
+    Misión: ${mision.value}
   `)
 }
 
@@ -54,16 +72,20 @@ onMounted(async () => {
         <option value="matar">Matar</option>
         <option value="panuelo">Pañuelo</option>
       </select>
-
       <input type="number" v-model="cantidad" placeholder="Cantidad" />
-
       <button @click="handleAdd">Add</button>
     </div>
 
     <div class="block">
-      <input type="text" placeholder="Misión" />
-      <button>Add Mision</button>
+      <select class="zk" v-model="typeMision">
+        <option value="info">Info</option>
+        <option value="alerta">Alerta</option>
+      </select>
+      <input type="text" v-model="mision" placeholder="Misión" />
+      <button @click="handleAddMision">Add Mision</button>
     </div>
+
+    <hr />
   </div>
 </template>
 

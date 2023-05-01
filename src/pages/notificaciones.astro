@@ -1,6 +1,11 @@
 ---
 import Notificacion from '../components/Notificacion.vue'
 import Layout from '../layouts/Layout.astro'
+import Api from '../api'
+
+const userCode = Astro.cookies.get('userCode')
+
+const notifications = await Api.get(`/users/misions?userCode=${userCode.value}`)
 ---
 
 <Layout title="Notificaciones">
@@ -9,9 +14,11 @@ import Layout from '../layouts/Layout.astro'
   </div>
 
   <div class="notificaciones">
-    <Notificacion tipo="info" mensaje="Quedan 2h para comer!" />
-    <Notificacion tipo="mision" mensaje="Te toca limpiar espabila" />
-    <Notificacion tipo="info" mensaje="Scripted ha ganado a Villwulf" />
+    {
+      notifications.map((item) => (
+        <Notificacion tipo={item.type} mensaje={item.mision} />
+      ))
+    }
   </div>
 </Layout>
 
