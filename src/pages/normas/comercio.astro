@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const normas = [
+
+]
+---
+
+<Layout title="Casa">
+    <h1>Comercio</h1>
+    <div class="rule">
+      <Normas normas={normas} />
+    </div>
+  </Layout>
+  
+  <style lang="scss">
+    h1 {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .rule {
+      margin: 30px;
+    }
+  </style>

@@ -20,20 +20,36 @@ const normas = [
 ---
 
 <Layout title="Casa">
-  <h1>Casa</h1>
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Casa</h1>
+    
+  </a>
+ 
   <div class="rule">
     <Normas normas={normas} />
   </div>
 </Layout>
 
 <style lang="scss">
-  h1 {
-    text-align: center;
+  a {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-top: 15px;
+      margin-left: 20px;
+      width: 30px;
+    }
   }
   .rule {
     margin: 30px;
   }
 </style>
+
