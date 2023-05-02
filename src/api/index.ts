@@ -15,7 +15,18 @@ class Api {
       return
     }
 
-    return await response.json()
+    try {
+      return await response.json()
+    } catch (err) {
+      console.log(
+        'OH SHIT HERE WE GO AGAIN >:(',
+        `Fetch failed: ${this.baseUrl + route}, error: ${err.message}`
+      )
+
+      console.log('Here is the body => ', response)
+
+      return
+    }
   }
 }
 
