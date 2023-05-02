@@ -4,15 +4,16 @@ import Api from '../api'
 
 const cantidad = ref(0)
 const type = ref('zkoins')
-const mision = ref('info')
+const mision = ref('')
 const typeMision = ref('typeMision')
 const userCode = ref('todos')
 const users = ref([])
+const concepto = ref('')
 const table = reactive([])
 
 const handleAdd = async () => {
   await Api.get(
-    `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}`
+    `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}&concepto=${concepto.value}`
   )
 
   const userName =
@@ -75,7 +76,10 @@ onMounted(async () => {
       <input type="number" v-model="cantidad" placeholder="Cantidad" />
       <button @click="handleAdd">Add</button>
     </div>
-
+    <div class="block" v-if="type === 'zkoins'">
+      <input type="text" v-model="concepto" placeholder="Concepto" />
+    </div>
+    <hr />
     <div class="block">
       <select class="zk" v-model="typeMision">
         <option value="info">Info</option>
@@ -84,8 +88,6 @@ onMounted(async () => {
       <input type="text" v-model="mision" placeholder="Misión" />
       <button @click="handleAddMision">Add Mision</button>
     </div>
-
-    <hr />
   </div>
 </template>
 
