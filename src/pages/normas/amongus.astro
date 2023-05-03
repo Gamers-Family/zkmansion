@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+    'bgfuh'
+]
+const normas = [
+  'Los muertos no hablan'
+]
+---
+
+<Layout title="NormasAmongus">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Amongus</h1>
+  </a>
+  <div class="rule">
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

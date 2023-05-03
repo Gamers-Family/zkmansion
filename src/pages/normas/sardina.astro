@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'1 jugador al azar se esconde.',
+'El resto de jugadores deberan de buscarlgo.',
+'Quien lo encuentre debera esconderse junto al 1er jugador y asi hasta que solo quede 1 persona buscando.',
+'Cuando todos hayan encontrado al que se ha escondido acaba el juego.',	
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasSardina">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Sardina</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

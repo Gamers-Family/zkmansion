@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'En la cara no vale',
+'El que tiene la pelota en la mano no se puede mover.',
+'Si el jugador que posee el balon se mueve, la pelota pasa al otro campo.',
+'Cuando te matan pasas al campo de muertos, si matas a alguien estando en el campo de muertos, revives.',
+'Si coges la pelota al vuelo que te lanza un jugador rival, este pasa a estar muerto.',
+'Cuando mueres tienes tienes 1 tiro con el balon.'
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasMatar">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Matar</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

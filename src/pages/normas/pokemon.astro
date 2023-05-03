@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'La batalla sera de 1 vs 1, batalla individual con 6 pokémon nivel igualado al 50.',
+'Los objetos equipados estan permitidos.',
+'Esta prohibido tener Pokémons repetidos en el equipo.',
+'Gana el jugador que derrote a todos los pokémon del equipo rival o quien mas pokemons tenga cuando se acabe el tiempo',
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasPokémon">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Pokémon</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

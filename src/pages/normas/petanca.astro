@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'Se lanza una bola pequeña, que es la de referencia.',
+'Los jugadores tendran que lanzar sus bolas para que queden lo mas cerca posible a la bola de referencia.',
+'El jugador que mas se aproxime gana.',					
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasPetanca">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Petanca</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

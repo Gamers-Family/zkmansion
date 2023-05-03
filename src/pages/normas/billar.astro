@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'El jugador que empieza la partida coloca la bola blanca donde quiera dentro de una región concreta para después golpearla con el taco. A este primer tiro se le conoce como romper o abrir. Si mete alguna bola distinta a la blanca o la negra, volverá a tirar. Si no lo hace, el turno pasará a su oponente.',
+'La primera bola que entra en la tronera (lo que se conoce como meter o entronar una bola) a partir del segundo turno determina qué tipos de bolas corresponden a cada jugador. Las bolas entronadas al romper no determinan nada.',
+'Faltas:',
+'  - Si no golpeas ninguna bola con la bola blanca.',
+'  - Si golpeas una bola del rival en primer lugar.',
+'  - Si golpeas la bola negra en primer lugar antes de haber metido tus otras bolas.',
+'Cuando un jugador comete una falta , perderá el turno y el oponente podrá colocar la bola blanca en la zona de saque y dispondra de 2 turnos',
+'EL ganador es el que meta la bola 8 en el agujero contrario al que metio su ultima bola o el que tenga menos bolas en juego al acabar el tiempo',
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasBillar">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Billar</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

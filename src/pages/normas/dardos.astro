@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'Vamos a jugar al 301.',
+'El juego consiste en que empiezas con 301 puntos y hay que ir restando  puntos segun donde claves el dardo',
+'Tienes que conseguir clavar la puntuacion, si te pasas vuelves a tu puntuacion anterior del ultimo lanzamiento, es decir  si te quedan 15 puntos y le das al 20, te has pasado a si q te siguen quedando 15 puntos y tu turno psas el siguiente jugador',
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasDardos">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Dardos</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

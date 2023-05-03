@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+'Las personas que forman el grupo se repartiran los numeros.',
+'Cuando una persona es alcanzada o si realiza una accion invalida sera eliminada.',
+'La persona eliminada no podra volver a jugar y el numero de esta persona pasara a otro de su grupo.',
+'Los numeros no se pueden intercambiar.',
+'Una persona queda eliminado si:',
+' - Es alcanzado por la otra persona mientras lleva el pañuelo.',
+' - Si alcanzas a una persona q no porta el pañuelo.',
+'Gana el equipo que elimine a todo el equipo rival.',					
+]
+const normas = [
+  
+]
+---
+
+<Layout title="NormasPañuelo">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Pañuelo</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>
+

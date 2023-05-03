@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Normas from '../../components/Normas.vue'
+const reglas = [
+    'Modo de juego: capturar la bandera.',
+    'Zonas de juego: Base, zona de la bandera y zona de juego.',
+    'Base: zona para reabastecerse o de spawn, en esa zona no puedes ni matar ni que te maten. si te quedas sin balas durante la batalla puedes ir a tu base para recargar. si mueres o si sales de la pista automaticamente tendras que ir a base y esperar 10 segundos para poder volver a salir.',
+    'Zona de juego: es toda la zona restante, donde si puedes matar y que te maten. si encuentras alguna bala por el suelo puedes recogerla para recargar tu municion (carroñeno).',
+    'Zona de la bandera: es una zona  que esta dentro de la zona de juego cercana a tu base donde tendras que esconder la bandera.',
+    'El juego consiste en capturar la bandera del equipo rival y llevarla a tu base.',
+    'Si te golpea una bala "mueres" tendras q salir fuera de la zona de juego con las manos levantadas y irte a tu base a esperar 10 segundos para volver a entrar en la zona de juego.',
+    'Si alguien captura la bandera y matan al portador, la bandera cae en el punto donde lo hayan matado. Si el equpo que  a perdido la bandera la recupera, puede volver a ponerla en el mismo sitio que estaba al empezar la partida.'
+]
+const normas = [
+  'Esta prohibido apuntar a la cara, sabemos que alguna bala podria dar sin querers, pero hay que evitar el maximo de daño posible.',
+  'Esta prohibido salir con las manos levantadas para hacer un fake, si las levantas es porque estas muerto.',
+  'Esta prohibido matar desde la base.',
+  'Cuando un jugador captura la bandera esta tiene que estar visible.',
+  'Es obligatorio jugar con gafas para proteger los ojos.',
+  'Una vez empieza la partida no se puede soltar el arma ni cambiarla con un compañero.',
+]
+---
+
+<Layout title="NormasValorant">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
+    <h1>Valorant</h1>
+  </a>
+  <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
+    <h2>Normas</h2>
+    <Normas normas={normas} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      gap: 10px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    .back {
+      margin-left: 20px;
+      width: 30px;
+    }
+  }
+  .rule {
+    margin: 30px;
+  }
+</style>

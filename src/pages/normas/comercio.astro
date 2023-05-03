@@ -2,23 +2,39 @@
 import Layout from '../../layouts/Layout.astro'
 import Normas from '../../components/Normas.vue'
 const normas = [
-
+'No se pueden ceder los ZKoins',
+'Habrá un precio por transaccion (5 ZKoins)',
+'Cuando se quiera adquirir 1 de los premios se tendra que hablar con 1 de los administradores',
+'Ningun admin se puede añadir ZKoins a si mismo',
 ]
 ---
 
-<Layout title="Casa">
+<Layout title="NormasComercio">
+  <a href="/normas">
+    <img class="back" src="/icons/back.svg" alt="<" />
     <h1>Comercio</h1>
+  </a>
     <div class="rule">
+      <h2>Normas</h2>
       <Normas normas={normas} />
     </div>
   </Layout>
   
   <style lang="scss">
-    h1 {
-      text-align: center;
+    a {
       display: flex;
-      justify-content: center;
-      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      h1 {
+        margin: 0;
+        gap: 10px;
+        flex-grow: 1;
+        text-align: center;
+      }
+      .back {
+        margin-left: 20px;
+        width: 30px;
+      }
     }
     .rule {
       margin: 30px;
