@@ -1,7 +1,7 @@
 class Api {
   private baseUrl = import.meta.env.PUBLIC_API
 
-  async get(route: string, newBaseUrl: string) {
+  async get(route: string, newBaseUrl: string = '') {
     let response
 
     const baseUrl = newBaseUrl ? newBaseUrl : this.baseUrl

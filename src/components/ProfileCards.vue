@@ -14,7 +14,10 @@ const props = defineProps({
 const usersWithImages = ref(props.users)
 
 onMounted(async () => {
-  usersWithImages.value = await Api.get('/users/with-images')
+  usersWithImages.value = await Api.get(
+    '/users/with-images',
+    import.meta.env.PUBLIC_API_CLIENT
+  )
 
   usersWithImages.value = usersWithImages.value.map((user) => {
     if (user.imagen) {
