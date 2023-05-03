@@ -10,7 +10,10 @@ const props = defineProps({
 const users = ref([])
 
 onMounted(async () => {
-  users.value = await Api.get(`/users/ranking?game=${props.game}`)
+  users.value = await Api.get(
+    `/users/ranking?game=${props.game}`,
+    import.meta.env.PUBLIC_API_CLIENT
+  )
 
   users.value = users.value.map((user) => {
     if (user.imagen) {
