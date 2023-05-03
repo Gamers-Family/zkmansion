@@ -1,13 +1,11 @@
 class Api {
   private baseUrl = import.meta.env.PUBLIC_API
 
-  async get(route: string, newBaseUrl: string = '') {
+  async get(route: string) {
     let response
 
-    const baseUrl = newBaseUrl ? newBaseUrl : this.baseUrl
-
     try {
-      response = await fetch(baseUrl + route)
+      response = await fetch(this.baseUrl + route)
     } catch (err) {
       console.log(
         'OH SHIT HERE WE GO AGAIN >:(',
