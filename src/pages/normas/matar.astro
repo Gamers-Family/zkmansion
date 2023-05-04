@@ -2,15 +2,17 @@
 import Layout from '../../layouts/Layout.astro'
 import Normas from '../../components/Normas.vue'
 const reglas = [
+'El juego consiste en golpear con un balon a los jufgadores rivales para eliminarlos.',
+'El quipo que elimine a todos los rivales primero gana.',
+]
+const normas = [
 'En la cara no vale',
 'El que tiene la pelota en la mano no se puede mover.',
 'Si el jugador que posee el balon se mueve, la pelota pasa al otro campo.',
 'Cuando te matan pasas al campo de muertos, si matas a alguien estando en el campo de muertos, revives.',
 'Si coges la pelota al vuelo que te lanza un jugador rival, este pasa a estar muerto.',
-'Cuando mueres tienes tienes 1 tiro con el balon.'
-]
-const normas = [
-  
+'Cuando mueres tienes tienes 1 tiro con el balon.',
+'Si golpeas a varias personas antes de que toque el suelo, estan todos eliminados, en este caso tendran que decidir quien lanza el balon para intentar volver al juego.',
 ]
 ---
 
@@ -22,6 +24,7 @@ const normas = [
   <div class="rule">
     <h2>Reglas</h2>
     <Normas reglas={reglas} />
+    <h2>Normas</h2>
     <Normas normas={normas} />
   </div>
 </Layout>
