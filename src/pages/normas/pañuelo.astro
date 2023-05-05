@@ -5,14 +5,15 @@ const reglas = [
 'Las personas que forman el grupo se repartiran los numeros.',
 'Cuando una persona es alcanzada o si realiza una accion invalida sera eliminada.',
 'La persona eliminada no podra volver a jugar y el numero de esta persona pasara a otro de su grupo.',
-'Los numeros no se pueden intercambiar.',
 'Una persona queda eliminado si:',
 ' - Es alcanzado por la otra persona mientras lleva el pañuelo.',
 ' - Si alcanzas a una persona q no porta el pañuelo.',
 'Gana el equipo que elimine a todo el equipo rival.',					
 ]
 const normas = [
-  
+  'Los números no se pueden intercambiar',
+  'No se puede empujar ni agarrar',
+  'El jugador queda eliminado solo con que lo toque',
 ]
 ---
 
@@ -24,6 +25,7 @@ const normas = [
   <div class="rule">
     <h2>Reglas</h2>
     <Normas reglas={reglas} />
+    <h2>Normas</h2>
     <Normas normas={normas} />
   </div>
 </Layout>

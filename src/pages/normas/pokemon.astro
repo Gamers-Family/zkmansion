@@ -2,13 +2,14 @@
 import Layout from '../../layouts/Layout.astro'
 import Normas from '../../components/Normas.vue'
 const reglas = [
-'La batalla sera de 1 vs 1, batalla individual con 6 pokémon nivel igualado al 50.',
-'Los objetos equipados estan permitidos.',
-'Esta prohibido tener Pokémons repetidos en el equipo.',
-'Gana el jugador que derrote a todos los pokémon del equipo rival o quien mas pokemons tenga cuando se acabe el tiempo',
+'Sera una batalla individual con un maximo de 6 pokémons.',
+'El onjetivo es derrotar a todos los pokémons del rival o el maximo numero posible dentro del tiempo establecido (20 min).',
 ]
 const normas = [
-  
+'Nivel igualado al 50.',
+'Equipar objetos esta permitido.',
+'Esta prohibido tener Pokémons repetidos en el equipo.',
+'Los Pokémons Legendarios estan prohibidos, pero si estan permitidos lotos los paradox y pokemons de evento.'
 ]
 ---
 
@@ -20,6 +21,7 @@ const normas = [
   <div class="rule">
     <h2>Reglas</h2>
     <Normas reglas={reglas} />
+    <h2>Normas</h2>
     <Normas normas={normas} />
   </div>
 </Layout>

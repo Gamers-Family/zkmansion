@@ -1,6 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import Normas from '../../components/Normas.vue'
+const reglas = [
+  'Se realizara un pequeño partido de futbol entre los equipos.',
+  'El partido sera a 2 Goles o a 10 minutos, lo que ocurra antes.',
+  'Jugar con responsabilidad y no cometais faltas.',
+  'En caso de empate se decidira al ganador con penalties.',
+]
 const normas = [
   
 ]
@@ -12,6 +18,7 @@ const normas = [
     <h1>Futbol</h1>
   </a>
   <div class="rule">
+    <Normas reglas={reglas} />
     <Normas normas={normas} />
   </div>
 </Layout>

@@ -2,13 +2,14 @@
 import Layout from '../../layouts/Layout.astro'
 import Normas from '../../components/Normas.vue'
 const reglas = [
-'1 jugador al azar se esconde.',
-'El resto de jugadores deberan de buscarlgo.',
-'Quien lo encuentre debera esconderse junto al 1er jugador y asi hasta que solo quede 1 persona buscando.',
-'Cuando todos hayan encontrado al que se ha escondido acaba el juego.',	
+  'Es un escondite inverso.',
+  '1 jugador al azar se esconde.',
+  'El resto de jugadores deberan de buscarlgo.',
+  'Quien lo encuentre debera esconderse junto al 1er jugador y asi hasta que solo quede 1 persona buscando.',
+  'Cuando todos hayan encontrado al que se ha escondido acaba el juego.',	
 ]
 const normas = [
-  
+  'No se puede gritar ni dar pistas a los demas judaroes sobre el paradero del que se esconde.',
 ]
 ---
 
@@ -20,6 +21,7 @@ const normas = [
   <div class="rule">
     <h2>Reglas</h2>
     <Normas reglas={reglas} />
+    <h2>Normas</h2>
     <Normas normas={normas} />
   </div>
 </Layout>

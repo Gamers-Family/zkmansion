@@ -1,6 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import Normas from '../../components/Normas.vue'
+const reglas = [
+  'Las reglas son las basicas del ajedrez de toda la vida.',
+  'Se realizara 1 partida entre jugadores, el ganador pasaráa la siguiente ronda.',
+]
 const normas = [
 
 ]
@@ -12,6 +16,8 @@ const normas = [
     <h1>Ajedrez</h1>
   </a>
   <div class="rule">
+    <h2>Reglas</h2>
+    <Normas reglas={reglas} />
     <Normas normas={normas} />
   </div>
 </Layout>
