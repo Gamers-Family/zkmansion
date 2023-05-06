@@ -35,11 +35,11 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
     <Card title="Normas" icon="normas" link="/normas" />
 
     {
-      userData.isAdmin && (
+      userData.isAdmin ? (
         <div class="cards__admin">
           <Card title="Admin" icon="admin" link="/admin" />
         </div>
-      )
+      ) : null
     }
   </div>
 </Layout>
