@@ -7,11 +7,11 @@ const { torneo } = Astro.params
 const titulo = torneo[0].toUpperCase() + torneo.substring(1, torneo.length)
 ---
 
-<Layout title="Torneo">
+<Layout title={`Torneo ${titulo}`}`>
   <a href="/torneos">
     <img class="back" src="/icons/back.svg" alt="<" />
     <div class="page-title">
-      <img src="/icons/pelota.svg" />
+      <img src={`/icons/${torneo}.svg`} />
       <h2>{titulo}</h2>
     </div>
   </a>
