@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+---
+<Layout title="Amongus">
+  <div class="page-title">
+    <h1>Amongus</h1>
+  </div>
+
+  <button id="sound">Alarma</button>
+
+<audio id="myAudio">
+  <source src="/music/alarma.mp3" type="audio/mpeg">
+</audio>
+</Layout>
+
+<script>
+  function playSound() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+    console.log(audio)
+  }
+
+  var sound = document.getElementById("sound");
+  sound.addEventListener('click',()=>playSound())
+  </script>
+
+<style lang="scss">
+ button{
+  display: block;
+  margin: auto;
+  background: red;
+  color: white;
+  margin-top: 30%;
+  font-size: 24px;
+  width: 220px;
+  height: 220px;
+  }
+</style>
