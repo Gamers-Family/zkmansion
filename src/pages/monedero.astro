@@ -8,13 +8,15 @@ const userCode = Astro.cookies.get('userCode')
 const userPoints = await Api.get(
   `/users/user-zkoins-points?userCode=${userCode.value}`
 )
+
+console.log(userPoints)
 ---
 
 <Layout title="ZK Mansion">
   <div class="monedero">
     <h2>Monedero de ZKoins</h2>
     <div class="coins">
-      <div class="coins__cantidad">{userPoints.zkoins}</div>
+      <div class="coins__cantidad">{userPoints[0].zkoins}</div>
       <img class="coins__coin" src="/img/zk_color.jpeg" alt="ZK" />
     </div>
     <hr />
