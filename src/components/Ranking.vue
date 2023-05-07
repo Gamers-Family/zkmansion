@@ -21,7 +21,7 @@ onMounted(async () => {
     return user
   })
 
-  console.log(users)
+  
 })
 </script>
 
