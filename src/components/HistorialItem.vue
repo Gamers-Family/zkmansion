@@ -7,7 +7,12 @@ const props = defineProps({
 
 <template>
   <div class="historial">
-    <div class="historial__diferencia--rojo">{{ zkoins }} ZK</div>
+    <div v-if="zkoins < 0">
+      <div class="historial__diferencia--rojo">{{ zkoins }} ZK</div>
+    </div>
+    <div v-else>
+      <div class="historial__diferencia--verde"> &nbsp; {{ zkoins }} ZK</div>
+    </div>
     <div class="historial__concepto">{{ concepto }}</div>
   </div>
 </template>
@@ -15,7 +20,7 @@ const props = defineProps({
 <style lang="scss">
 .historial {
   display: grid;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 50px 1fr;
   font-size: 14px;
   padding: 10px;
 
