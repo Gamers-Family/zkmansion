@@ -13,12 +13,13 @@ const premios = await response.json()
   </div>
   <div class="cards">
     {
-      premios.map((premio) => (
+      premios.map((premio, index) => (
         <Premio
           titulo={premio.titulo}
           stock={premio.stock}
           precio={premio.precio}
           foto={premio.foto}
+          index={index}
         />
       ))
     }

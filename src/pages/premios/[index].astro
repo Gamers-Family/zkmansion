@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Api from '../../api'
+
+const { index } = Astro.params
+const premios = await Api.get(`/premios`)
+const premio = premios[Number(index)]
+
+const base64Image = premio.foto
+  ? Buffer.from(premio.foto.data).toString('base64')
+  : ''
+const fotoPremio = `data:image/jpeg;base64,${base64Image}`
+---
+
+<Layout title={premio.titulo}>
+  <a href="/premios">
+    <div class="page-title">
+      <img class="back" src="/icons/back.svg" alt="<" />
+      <h2>{premio.titulo}</h2>
+    </div>
+
+    <img class="foto-premio" src={fotoPremio} alt={premio.titulo} />
+  </a>
+</Layout>
+
+<style lang="scss">
+  .page-title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    h2 {
+      text-align: center;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+
+  .foto-premio {
+    width: 100%;
+  }
+</style>

@@ -1,9 +1,10 @@
 <script setup>
 const props = defineProps({
   titulo: String,
-  stock: Number,
+  stock: String,
   precio: String,
-  foto: String,
+  foto: Object,
+  index: Number,
 })
 
 const base64Image = props.foto
@@ -14,19 +15,21 @@ const fotoPremio = `data:image/jpeg;base64,${base64Image}`
 </script>
 
 <template>
-  <div class="premio" :class="!props.stock ? 'outstock' : ''">
-    <div class="imagen" :style="{ backgroundImage: `url(${fotoPremio})` }" />
-    <div class="info">
-      <div class="info__premio">{{ props.titulo }}</div>
-      <div class="info__almacen">
-        <div class="precio">
-          <div class="precio__cantidad">{{ props.precio }}</div>
-          <img class="precio__coin" src="/img/zk_color.jpeg" alt="ZK" />
+  <a :href="`/premios/${props.index}`">
+    <div class="premio" :class="!props.stock ? 'outstock' : ''">
+      <div class="imagen" :style="{ backgroundImage: `url(${fotoPremio})` }" />
+      <div class="info">
+        <div class="info__premio">{{ props.titulo }}</div>
+        <div class="info__almacen">
+          <div class="precio">
+            <div class="precio__cantidad">{{ props.precio }}</div>
+            <img class="precio__coin" src="/img/zk_color.jpeg" alt="ZK" />
+          </div>
+          <div class="stock">{{ props.stock }} Uds</div>
         </div>
-        <div class="stock">{{ props.stock }} Uds</div>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <style lang="scss">
