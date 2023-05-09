@@ -1,12 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import AdminForms from '../components/AdminForms.vue'
+import Api from '../api'
+
+const userCode = Astro.cookies.get('userCode')
+
+const userData = await Api.get(
+  `/users/user-profile-with-image?userCode=${userCode.value}`
+)
 ---
 
 <Layout title="Admin">
-  <div class="page-title">
-    <h2>Admin Panel</h2>
-  </div>
 
-  <AdminForms client:load />
+  {
+    userData.isAdmin ? (
+      <div class="page-title">
+        <h2>Admin Panel</h2>
+      </div>
+
+      <AdminForms adminData={userData} client:load />
+    ) : 
+    
+    <div class="page-title">
+        <h2>No tienes Acceso pussy</h2>
+    </div>
+
+  }
+
 </Layout>

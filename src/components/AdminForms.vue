@@ -11,15 +11,20 @@ const users = ref([])
 const concepto = ref('')
 const table = reactive([])
 
-const handleAdd = async () => {
-  await Api.get(
-    `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}&concepto=${concepto.value}`
-  )
+const props = defineProps({
+  adminData: Object
+})
 
+const handleAdd = async () => {
+  
   const userName =
     userCode.value === 'todos'
       ? 'Todos'
       : users.value.find((x) => userCode.value === x.userCode).apodo
+  
+  await Api.get(
+    `/admin/add?type=${type.value}&cantidad=${cantidad.value}&userCode=${userCode.value}&concepto=${concepto.value}&adminCode=${props.adminData.userCode}&adminApodo=${props.adminData.apodo}&userApodo=${userName}`
+  )
 
   alert(`
     Users afectados: (${userName})
