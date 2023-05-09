@@ -9,21 +9,23 @@ const userPoints = await Api.get(
   `/users/user-zkoins-points?userCode=${userCode.value}`
 )
 
-console.log(userPoints)
+const monedero = await Api.get(`/users/monedero?userCode=${userCode.value}`)
+
+console.log(monedero)
 ---
 
 <Layout title="ZK Mansion">
   <div class="monedero">
     <h2>Monedero de ZKoins</h2>
     <div class="coins">
-      <div class="coins__cantidad">{userPoints[0].zkoins}</div>
+      <div class="coins__cantidad">{userPoints.zkoins}</div>
       <img class="coins__coin" src="/img/zk_color.jpeg" alt="ZK" />
     </div>
     <hr />
 
     {
-      [{ zkoins: 3, concepto: 'Has ganado al ajedrez!' }].map((item) => (
-        <HistorialItem zkoins={item.zkoins} concepto={item.concepto} />
+      monedero.map((item) => (
+        <HistorialItem zkoins={item.movements} concepto={item.concepto} />
       ))
     }
   </div>
