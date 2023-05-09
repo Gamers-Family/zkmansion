@@ -41,13 +41,20 @@ const userPoints = await Api.get(
   </body>
 </html>
 <style lang="scss" is:global>
+  html {
+    height: fill-available;
+    height: -webkit-fill-available;
+  }
+
   body {
     margin: 0;
     font-family: Poppins;
-    min-height: 90vh;
     color: rgb(243, 243, 243);
     overflow: hidden;
     background: #16071d;
+    min-height: 100vh;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
   }
 
   .container {
