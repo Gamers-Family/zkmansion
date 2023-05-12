@@ -15,7 +15,18 @@ const userPoints = await Api.get(
 ---
 
 <script>
-  document.body.style.height = document.body.scrollHeight + 'px'
+  if (navigator.userAgent.match(/iPhone/i)) {
+    // El dispositivo es un iPhone
+    // Agrega aquí el código que deseas ejecutar si el dispositivo es un iPhone
+    document.documentElement.style.height = `${document.documentElement.scrollHeight - 200}px`
+  }
+  else {
+    // El dispositivo no es un iPhone
+    // Agrega aquí el código que deseas ejecutar si el dispositivo no es un iPhone
+    document.body.style.height = `${document.documentElement.scrollHeight - 60}px`
+    // perfil.style.height = `${document.documentElement.scrollHeight - 60}px`
+  }
+  // document.body.style.height = document.body.scrollHeight + 'px'
 </script>
 
 <html lang="en">

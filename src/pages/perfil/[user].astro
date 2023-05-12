@@ -55,7 +55,17 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
   })
 
   const perfil = document.querySelector('.perfil')
-  perfil.style.height = `${document.body.scrollHeight - 60}px`
+  if (navigator.userAgent.match(/iPhone/i)) {
+    // El dispositivo es un iPhone
+    // Agrega aquí el código que deseas ejecutar si el dispositivo es un iPhone
+    perfil.style.height = `${document.documentElement.scrollHeight - 200}px`
+  }
+  else {
+    // El dispositivo no es un iPhone
+    // Agrega aquí el código que deseas ejecutar si el dispositivo no es un iPhone
+    perfil.style.height = `${document.documentElement.scrollHeight - 60}px`
+  }
+  
 </script>
 
 <style lang="scss">
@@ -65,6 +75,7 @@ const fotoPerfil = `data:image/jpeg;base64,${base64Image}`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    min-height: 300px;
 
     .foto-perfil {
       width: 100%;
