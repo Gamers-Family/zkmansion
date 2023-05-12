@@ -14,7 +14,10 @@ const userPoints = await Api.get(
 )
 ---
 
-<!DOCTYPE html>
+<script>
+  document.body.style.height = document.body.scrollHeight + 'px'
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -52,15 +55,13 @@ const userPoints = await Api.get(
     color: rgb(243, 243, 243);
     overflow: hidden;
     background: #16071d;
-    min-height: 100vh;
-    min-height: fill-available;
-    min-height: -webkit-fill-available;
+    height: 100%;
   }
 
   .container {
     max-width: 600px;
     margin-top: 60px;
-    max-height: calc(100vh - 60px);
+    max-height: calc(100% - 60px);
     overflow: scroll;
   }
 
